@@ -1,10 +1,10 @@
 body {
-    background-color: blue;
-    font: normal 15pt arial;
+    background-color: white;
+    font-size: 15pt;
 }
 
 header {
-    color: white;
+    color:black;
     text-align: center;
 }
 
@@ -37,7 +37,6 @@ div#QDD {
 }
 
 footer {
-    color: white;
     text-align: center;
     font-style: italic;
 }

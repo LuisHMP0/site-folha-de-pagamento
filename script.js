@@ -10,7 +10,9 @@ num.addEventListener('keyup', function(event) {
 })
 
 function colocar(){
-   
+    if (num.value > 31 || num.value < 0) {
+        window.alert('[ERRO] Número inválido. O número não pode ser maior que 31 ou menor que 0, digite novamente.')
+    } else {
     dias.push(Number(num.value))
     num.value = ''
     num.focus()
@@ -24,16 +26,22 @@ function colocar(){
 
         let salarioBruto = salSemDsr+dsr
         
+        let divh1 = document.getElementById('header')
+        let h1 = document.getElementById('h1')
+        h1.remove()
+        divh1.innerHTML = ` <h1> Contracheque </h1> <br>`
+        
         document.getElementById('div1').remove()
-        res.innerHTML += `<strong>Informações</strong> <br><br>`
+        res.innerHTML += `<strong>Salário</strong> <br><br>`
         res.innerHTML += `<p id="p01"> Salário bruto -----------------------------------------<strong> R$ ${salarioBruto.toFixed(2)} </strong> </p>`
         res.innerHTML += `<p id="p01"> Salário líquido ---------------------------------------<strong> R$ ${descontos(salarioBruto).toFixed(2)} </strong> </p>`
         res.innerHTML += `<p> <strong> Descontos e Adicionais </strong> <br><br></p>`
-        res.innerHTML += `<p id="p02"> INSS ---------------------------------------------------<strong> R$ ${inss(salarioBruto).toFixed(2)} </strong> </p>`
+        res.innerHTML += `<p id="p02"> INSS -------------------------------------------------<strong> R$ ${inss(salarioBruto).toFixed(2)} </strong> </p>`
         res.innerHTML += `<p id="p02"> Vale Transporte 6% --------------------------------<strong> R$ ${vt6(salarioBruto).toFixed(2)} </strong> </p>`
-        res.innerHTML += `<p id="p03"> DSR ----------------------------------------------------<strong> R$ ${dsr.toFixed(2)} </strong> </p>`
+        res.innerHTML += `<p id="p03"> DSR --------------------------------------------------<strong> R$ ${dsr.toFixed(2)} </strong> </p>`
 
-    }
+    }}
+
 }
 
 function descontos(salBruto){
