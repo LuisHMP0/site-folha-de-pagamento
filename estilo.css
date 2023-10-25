@@ -18,6 +18,20 @@ section {
     text-align: center;
 }
 
+p#p02 {
+    color: red;
+    text-align: left;
+}
+
+p#p03 {
+    color: green;
+    text-align: left;
+}
+
+p#p01 {
+    text-align: left;
+}
+
 div#QDD {
     text-align: left;
 }

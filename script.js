@@ -10,24 +10,15 @@ num.addEventListener('keyup', function(event) {
 })
 
 function colocar(){
-    
-    if (elementosAdicionados < 3){
+   
     dias.push(Number(num.value))
     num.value = ''
     num.focus()
-    elementosAdicionados++
-    } else {
-        window.alert('Voce ja adicionou três elementos')
-    }
 
     if (dias.length === 3){
-        let diasTrabalhados = dias[0]
-        let diasTotais = dias[1]
-        let diasUteis = dias[2]
-        let diasNaoUteis = diasTotais - diasUteis
-
-        let dsrPorcentagem = diasNaoUteis/diasUteis
-        let horasTrabalhadas = diasTrabalhados*6
+        let diasNaoUteis = dias[1] - dias[2]
+        let dsrPorcentagem = diasNaoUteis/dias[2]
+        let horasTrabalhadas = dias[0]*6
         let salSemDsr = horasTrabalhadas*6
         let dsr = salSemDsr*dsrPorcentagem
 
@@ -35,10 +26,12 @@ function colocar(){
         
         document.getElementById('div1').remove()
         res.innerHTML += `<strong>Informações</strong> <br><br>`
-        res.innerHTML += `<p> Salário bruto -----------------------------------------<strong> $ ${salarioBruto} </strong> </p>`
-        res.innerHTML += `<p> Salário líquido ---------------------------------------<strong> $ ${descontos(salarioBruto)} </strong> </p>`
-        res.innerHTML += `<p> <strong> Descontos </strong> <br><br></p>`
-        res.innerHTML += `<p> INSS --------------------------------------------------<strong> $ ${descontos.inss(salarioBruto)} </strong> </p>`
+        res.innerHTML += `<p id="p01"> Salário bruto -----------------------------------------<strong> R$ ${salarioBruto.toFixed(2)} </strong> </p>`
+        res.innerHTML += `<p id="p01"> Salário líquido ---------------------------------------<strong> R$ ${descontos(salarioBruto).toFixed(2)} </strong> </p>`
+        res.innerHTML += `<p> <strong> Descontos e Adicionais </strong> <br><br></p>`
+        res.innerHTML += `<p id="p02"> INSS ---------------------------------------------------<strong> R$ ${inss(salarioBruto).toFixed(2)} </strong> </p>`
+        res.innerHTML += `<p id="p02"> Vale Transporte 6% --------------------------------<strong> R$ ${vt6(salarioBruto).toFixed(2)} </strong> </p>`
+        res.innerHTML += `<p id="p03"> DSR ----------------------------------------------------<strong> R$ ${dsr.toFixed(2)} </strong> </p>`
 
     }
 }
@@ -52,6 +45,16 @@ function descontos(salBruto){
     let salarioLiquido = salBruto-desconto
 
     return salarioLiquido
+}
+
+function inss(salBruto){
+    let inss = salBruto*0.08
+    return inss
+}
+
+function vt6(salBruto){
+    let VT = salBruto*0.06
+    return VT
 }
 
 
