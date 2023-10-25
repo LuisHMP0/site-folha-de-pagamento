@@ -16,7 +16,6 @@ function colocar(){
     num.value = ''
     num.focus()
     elementosAdicionados++
-    res.innerHTML = `Lista: ${dias}`
     } else {
         window.alert('Voce ja adicionou três elementos')
     }
@@ -34,9 +33,28 @@ function colocar(){
 
         let salarioBruto = salSemDsr+dsr
         
-        window.alert(salarioBruto)
+        document.getElementById('div1').remove()
+        res.innerHTML += `<strong>Informações</strong> <br><br>`
+        res.innerHTML += `<p> Salário bruto -----------------------------------------<strong> $ ${salarioBruto} </strong> </p>`
+        res.innerHTML += `<p> Salário líquido ---------------------------------------<strong> $ ${descontos(salarioBruto)} </strong> </p>`
+        res.innerHTML += `<p> <strong> Descontos </strong> <br><br></p>`
+        res.innerHTML += `<p> INSS --------------------------------------------------<strong> $ ${descontos.inss(salarioBruto)} </strong> </p>`
+
     }
 }
+
+function descontos(salBruto){
+    let inss = salBruto*0.08
+    let VT = salBruto*0.06
+    let VTParcial = salBruto*0.03
+
+    let desconto = inss+VT
+    let salarioLiquido = salBruto-desconto
+
+    return salarioLiquido
+}
+
+
 
 
 
