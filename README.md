@@ -1,2 +1,2 @@
 # site-folha-de-pagamento
- Site simples para calcular quanto vou receber todo mês.
+ Site simples para calcular quanto um horista pode receber todo mês.
