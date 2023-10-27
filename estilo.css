@@ -1,14 +1,40 @@
+* {
+    padding: 0;
+    margin: 0;
+
+}
 body {
     background-color: white;
     font-size: 15pt;
 }
 
 header {
-    color:black;
+    color:white;
     text-align: center;
+    background-color: black;
+    height: 15vh;
 }
 
-section {
+section#container1 {
+    width: 100%;
+    height: 70vh;
+}
+
+div#box1 {
+    width: 500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-indent: 10%;
+}
+
+p#box1 {
+    text-align: justify;
+    text-indent: 10%;
+}
+
+section#container2 {
     background-color: white;
     border-radius: 10px;
     padding: 15px;
